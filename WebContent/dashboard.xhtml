@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Insert title here</title>
+	<script src="jquery/jquery.js" />
+	<script src="jquery/jquery-ui.js" />
+	<script src="jquery/Myjs.js" />
+	<script type="text/javascript" src="canvasjs.min.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.css" />
+	<link rel="stylesheet" href="css/MyCss.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	
+</h:head>
+<h:body>
+	<div id="main">
+		<div id="header">
+			<ui:include  src="header.xhtml" />
+		</div>
+		<div id="content">
+			<div id="sidebar">
+			
+			<ui:include  src="sidebar.xhtml" />
+			
+			</div>
+		
+			<div id="center">
+				<div id="tabs">
+					<ul>
+						<li><a href="#tabs-1">DashBoard</a></li>
+						<li><a href="#tabs-2">Activity</a></li>
+					</ul>
+					<div id="tabs-1">
+						<div id="dashboard">
+							
+							<div class="dashboard-inner-blocks">
+								<div class="dashboard-circle">
+									<h:outputText  value="#{courseBean.totalCourses}" style="color:white;font-size:25px; font-weight:bold;"/>
+								</div>
+								<div style="padding-left: 30px;padding-top: 15px; font-size: 12px;font-weight:bold; "><h:outputText value="Total Courses"/></div>
+							</div>
+
+							<div class="dashboard-inner-blocks">
+							<div class="dashboard-circle">
+								<h:outputText style="font-size:25px; font-weight:bold;" value="#{courseBean.totalActiveCourses}"/>
+							</div>
+							<div style="padding-left: 18px;padding-top: 15px; font-size: 12px;font-weight:bold;"><h:outputText value="Total Active Courses"/></div>
+							</div>
+
+							<div class="dashboard-inner-blocks">
+							<div class="dashboard-circle">
+							<h:outputText  value="0" style="color:white;font-size:25px; font-weight:bold;"/>
+							</div>
+							<div style="padding-left: 50px;padding-top: 15px;font-size: 12px;font-weight:bold; "><h:outputText value="Total User"/></div>
+							</div>
+							
+							<div class="dashboard-inner-blocks">
+							<div class="dashboard-circle">
+							<h:outputText  value="0" style="color:white;font-size:25px; font-weight:bold;"/>
+							</div>
+							<div style="padding-left: 18px;padding-top: 15px ;font-size: 12px;font-weight:bold;"><h:outputText value="Total Login Periods"/></div>
+							</div>
+
+						</div>
+						</div>
+						<div id="tabs-2">
+							<div id="activity">
+						
+				
+							</div>
+					</div>
+				</div>
+				<div id="mid">
+					<div id="historical">
+						<div style="border-radius: 5px; float: left; padding-left:5px; padding-top:5px; background-color:#CCCCCC;color:black;height: 40px">
+						<strong>Historical</strong>
+						</div>
+						<div style="border-radius: 5px;  padding-left:5px; padding-top:5px; background-color:#CCCCCC;color:black;height:40px;padding-right: 20px;" align="right">
+						<h:selectOneMenu id="des" value="#{registration.designation}" style="border-radius: 42px; -moz-border-radius: 42px; -webkit-border-radius: 42px; border: 4px inset #CCCCCC;background-color:#CCCCCC">
+								<f:selectItem itemValue="1" itemLabel="Complete courses" />
+								<f:selectItem itemValue="2" itemLabel="Incomplete courses" />
+								<f:selectItem itemValue="3" itemLabel="TPending courses" />
+							</h:selectOneMenu>
+						</div>
+					</div>
+					<div id="assignment">
+						<div style="border-radius: 5px; padding-left:5px; padding-top:5px;  background-color:#CCCCCC;color:black;height: 40px">
+						<strong>Assignment</strong>		
+						</div>
+					</div>
+				</div>
+				
+				<div id="chartContainer"></div>
+				
+			</div>
+			
+			<div id="right">
+				<div style="border-radius: 5px; padding-left:5px; padding-top:8px; margin-top:1px;  background-color:#CCCCCC;color:black;height: 45px">
+						<strong>Action</strong>		
+						<div style="padding-top: 10px;padding-left: 20px;">
+							<h:form prependId="false">
+								<p><h:commandButton class="bton" type="submit" action="createcourse.xhtml" value="Create a Course        >"/></p>
+								<p><h:commandButton class="bton" type="submit" action="#" value="Create a User          >"/></p>
+								<p><h:commandButton class="bton" type="submit" action="#" value="Create a Team          >"/></p>
+							</h:form>
+						</div>
+						</div>
+			</div>
+		</div>
+	</div>
+
+</h:body>
+</html>

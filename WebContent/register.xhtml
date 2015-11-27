@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+<script  src="jquery/jquery.js"/>
+<script  src="jquery/jquery-ui.js"/>
+<script  src="jquery/Myjs.js"/>
+<script  src="jquery/validation.js"/>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="css/jquery-ui.css"/>
+<link rel="stylesheet" href="css/MyCss.css"/>
+</h:head>
+<h:body>
+	<div id="formcontainer">
+		<h1>Registration Form</h1>
+		<h:form prependId="false">
+				<table>
+					<tr>
+						<td>Name</td>
+						<td><h:inputText id="name" value="#{registration.name}" /></td>
+						<td><span id="spanName"></span></td>
+					</tr>
+					<tr>
+						<td>Contact</td>
+						<td><h:inputText id="contact" value="#{registration.contact}" /></td>
+						<td><span id="spanContact"></span></td>	
+					</tr>
+					<tr>
+						<td>Email Id</td>
+						<td><h:inputText id="email" value="#{registration.email}" /></td>
+						<td><span id="spanEmail"></span></td>
+					</tr>
+					<tr>
+						<td>Designation</td>
+						<td>
+							<h:selectOneMenu value="#{registration.designation}">
+								<f:selectItem itemValue="null" itemLabel="--------Select---------" />
+								<f:selectItem itemValue="1" itemLabel="Manager" />
+								<f:selectItem itemValue="2" itemLabel="Trainer" />
+								<f:selectItem itemValue="3" itemLabel="Trainee" />
+							</h:selectOneMenu>
+						</td>
+					</tr>
+					<tr>
+						<td>User Name</td>
+						<td><h:inputText id="username1" value="#{registration.userName}" /></td>
+						<td><span id="spanUser"></span></td>
+					</tr>
+					<tr>
+						<td>Password</td>
+						<td><h:inputSecret id="password1" value="#{registration.password}" /></td>
+						<td><span id="spanPassword"></span></td>
+					</tr>
+					<tr>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td align="left"><h:commandButton class="btn" type="reset" value="Reset"/></td>
+						<td align="right"><h:commandButton class="btn" type="submit" value="Save" action="#{registration.save}" /></td>
+					</tr>
+				</table>
+			</h:form>
+	</div>
+</h:body>
+</html>

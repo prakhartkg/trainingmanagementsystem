@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<script src="jquery/jquery.js" />
+	<script src="jquery/jquery-ui.js" />
+	<script src="jquery/Myjs.js" />
+	<script type="text/javascript" src="canvasjs.min.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.css" />
+	<link rel="stylesheet" href="css/MyCss.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	
+</h:head>
+<h:body>
+<div id="main">
+		<div id="header">
+			<ui:include  src="header.xhtml" />
+		</div>
+		
+		<div id="content">
+			<div id="sidebar">
+				<ui:include  src="sidebar.xhtml" />
+			</div>
+
+			<div id="center">
+				<div id="tabs">
+					<ul>
+						<li><a href="#tabs-1">Sub Heading</a></li>
+						<li><a href="#tabs-2">Main Heading</a></li>
+					</ul>
+					<div id="tabs-2">
+						<div id="mainheading" style="padding-left:20%;height: 150px">
+							<h:form>
+							
+							<table>
+								<tr>
+									<td>Course Title : </td>
+									<td>
+									<h:selectOneMenu value="#{courseBean.course_id}">
+										<f:selectItem itemValue="-1" itemLabel="-----------select------------"/>
+										<f:selectItems value="#{courseBean.courses}" var="course" itemLabel="#{course.courseTitle}" itemValue="#{course.course_id}"/>
+									</h:selectOneMenu>
+									</td>
+								</tr>
+								<tr>
+								<td>Heading :</td>
+								<td><h:inputText size="25" value="#{courseBean.heading_text}"/></td>
+								</tr>
+								<tr>
+								<td colspan="3"><p>
+								<h:commandButton class="button" value="Save" action="#{courseBean.saveHeading(1)}" />&nbsp;&nbsp;
+								
+								<h:commandButton class="button" value="Save Add more" action="#{courseBean.saveHeading(2)}" />&nbsp;&nbsp;
+								
+								<h:commandButton class="button" value="Cancel" action="dashboard.xhtml?faces-redirect=true"/>
+								</p>
+								</td>
+								</tr>
+							</table>
+							</h:form>
+						</div>
+					</div>
+					<div id="tabs-1">
+						<div id="subheading" style="padding-left:20%;height: 150px">
+							<h:form>
+							
+							<table>
+								<tr>
+									<td>Course Title : </td>
+									<td>
+									<h:selectOneMenu value="#{courseBean.course_id}" valueChangeListener="#{courseBean.selectHeadings}" onchange="submit()">
+										<f:selectItem  itemLabel="------------select-----------" itemValue="-1"/>
+										<f:selectItems value="#{courseBean.courses}" var="course" itemLabel="#{course.courseTitle}" itemValue="#{course.course_id}"/>
+									</h:selectOneMenu>
+									</td>
+								</tr>
+								<tr>
+								<td>Heading :</td>
+								<td>
+								<h:selectOneMenu id="head" value="#{courseBean.heading_id}">
+   									<f:selectItem itemLabel="------------select-----------" itemValue="-1"/>
+   									<f:selectItems value="#{courseBean.hadings}" var="heading" itemLabel="#{heading.heading_text}" itemValue="#{heading.heading_id}"/>
+								</h:selectOneMenu>
+								</td>
+						
+								</tr>
+								<tr>
+								<td>Sub-Heading:</td>
+								<td><h:inputText value="#{courseBean.subheading_text}" size="25"/></td>
+								</tr>
+								<tr>
+								<td colspan="3"><p>
+								<h:commandButton class="button" value="Save" action="#{courseBean.saveSubHeading(1)}" />&nbsp;&nbsp;
+								
+								<h:commandButton class="button" value="Save Add more" action="#{courseBean.saveSubHeading(2)}" />&nbsp;&nbsp;
+								
+								<h:commandButton class="button" value="Cancel" action="dashboard.xhtml?faces-redirect=true"/>
+								</p>
+								</td>
+								</tr>
+							</table>
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+</div>
+</h:body>
+</html>

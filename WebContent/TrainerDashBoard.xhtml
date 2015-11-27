@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Insert title here</title>
+	<script src="jquery/jquery.js" />
+	<script src="jquery/jquery-ui.js" />
+	<script src="jquery/Myjs.js" />
+	<script type="text/javascript" src="canvasjs.min.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.css" />
+	<link rel="stylesheet" href="css/MyCss.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	
+</h:head>
+<h:body>
+	<div id="main">
+		<div id="header">
+			<ui:include  src="header.xhtml" />
+		</div>
+		<div id="content">
+			<div id="sidebar">
+			
+			</div>
+		
+			<div id="center">
+			<div id="top" style="float: right">
+				<h:form>
+				<table>
+								<tr>
+									<td>Course:</td>
+									<td>
+										<h:selectOneMenu value="#{trainerBean.course_id}" valueChangeListener="#{trainerBean.selectCourse}" onchange="submit()">
+										<f:selectItem  itemLabel="------------select-----------" itemValue="-1"/>
+										<f:selectItems value="#{trainerBean.courses}" var="course" itemLabel="#{course.courseTitle}" itemValue="#{course.course_id}"/>
+									</h:selectOneMenu>
+									</td>
+								</tr>
+								
+				</table>
+				</h:form>
+			</div>
+			<div id="display">
+				<div class="CSSTableGenerator">
+						<h:form>
+						<table>
+							<tr>
+								<td colspan="4">Course Details-<h:outputText value="#{trainerBean.course.courseTitle}" /></td>
+							</tr>
+							<ui:repeat value="#{trainerBean.course.headings}" var="heading">
+								<tr>
+									<td colspan="4" style="font-weight: bolder; font-size: 15px; background-color: #8C8C8C">
+										<h:outputText style="font-weight:bold;" value="#{heading.heading_text}" />
+									
+									</td>
+									
+								</tr>
+								<ui:repeat value="#{heading.subHeadings}" var="subheading">
+									<tr>
+										<td style="background-color: white;text-align: center;"><strong>*</strong></td>
+										<td style="background-color: white;"><h:outputText value="#{subheading.subheading_text}" /></td>
+										<td style="background-color: white; text-align: center;">
+										
+										<h:outputText value="#{subheading.status}" />
+										</td>
+										<td style="background-color: white;">
+										<span style="padding-left: 20px;">										
+										<h:selectOneMenu value="#{trainerBean.subheadingStatus}" valueChangeListener="#{trainerBean.selectstatus}" onchange="submit()">
+											<f:selectItem itemLabel="Not started" itemValue="0" />
+											<f:selectItem itemLabel="Pending" itemValue="1" />
+											<f:selectItem itemLabel="Completed" itemValue="2" />	
+										</h:selectOneMenu>
+										</span>
+										
+										<span style="padding-left: 40px">
+										</span>
+										<h:commandButton value="ok"/>
+										</td>
+										
+									</tr>
+								</ui:repeat>
+							</ui:repeat>
+						</table>
+						</h:form>
+					</div>
+			
+			
+			
+			</div>	
+				
+			</div>
+			
+			
+		</div>
+	</div>
+
+</h:body>
+</html>

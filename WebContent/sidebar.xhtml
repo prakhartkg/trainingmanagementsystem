@@ -1,0 +1,46 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+   <div id="sidebar">
+			<h:form>
+			  <div class="icon">
+			  
+                    <h:commandLink class="tooltips" action="dashboard.xhtml?faces-redirect=true"><img src="1.png"  height="50px" width="50px" />
+                    <span>DashBoard</span>
+                    </h:commandLink>
+                </div>
+                <div class="icon">
+                   <h:commandLink class="tooltips" action="#{courseBean.viewAllCources}" > <img src="2.png" height="50px" width="50px" />
+                   <span>Courses</span>
+                   </h:commandLink>
+                    </div>
+                <div class="icon">
+                   <h:commandLink class="tooltips" href="#"> <img src="3.png" height="50px" width="50px" />
+                   <span>People</span>
+                   </h:commandLink>
+                </div>
+                <div class="icon">
+                    <h:commandLink class="tooltips" > <img src="4.png"  height="50px" width="50px" />
+                   <span>Team</span>
+                  </h:commandLink>
+                  </div>
+                <div class="icon">
+                   <h:commandLink class="tooltips" href="#">  <img src="5.png" height="50px" width="50px"/>
+                    <span>Reports</span>
+                   </h:commandLink>
+                    </div>
+                <div class="icon">
+                    <h:commandLink class="tooltips" href="#"> <img src="6.png" height="50px" width="50px" />
+                    <span>Messages</span>
+                    </h:commandLink>
+                    </div>
+                <div class="icon">
+                     <h:commandLink class="tooltips" href="#"><img src="7.png" height="50px" width="50px"/>
+                    <span>Setting</span>
+                    </h:commandLink>
+                    </div>
+			</h:form>
+			</div>
+</ui:composition>

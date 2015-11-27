@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<script src="jquery/jquery.js" />
+	<script src="jquery/jquery-ui.js" />
+	<script src="jquery/Myjs.js" />
+	<script type="text/javascript" src="canvasjs.min.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.css" />
+	<link rel="stylesheet" href="css/MyCss.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	
+</h:head>
+<h:body>
+	<div id="main">
+		<div id="header">
+			<ui:include src="header.xhtml" />
+		</div>
+
+		<div id="content">
+			<div id="sidebar">
+				<ui:include src="sidebar.xhtml" />
+			</div>
+
+			<div id="center">
+				<div id="viewarea">
+					<h:form prependId="false">
+						<div  id="courses" style="padding-left:130px  ;width:600px; float: left;margin-bottom:50px; margin-top:50px; margin-left: 180px;background-color: white;border-radius: 10px;box-shadow: 5px 5px 5px #888888;">
+							<table  cellpadding="5px" cellspacing="10px">
+								<tr>
+									<th>Course</th>
+									<th>Reference Id</th>
+									
+									<th>Action</th>
+								</tr>
+								<ui:repeat value="#{courseBean.courses}" var="course">
+
+
+									<tr>
+										<td><p>#{course.courseTitle}</p></td>
+										<td><p>#{course.referance_id}</p></td>
+										
+										<td>
+											<p>
+												<h:commandLink class="tooltips"  action="#{courseBean.updateCourseStatus}">
+												<h:graphicImage  value="#{course.statusButton}"   height="30px" width="30px" />
+												<f:setPropertyActionListener target="#{courseBean.course}" value="#{course}"/>
+												<span><h:outputText value="#{course.tooltip}"/></span>
+												</h:commandLink>&nbsp;&nbsp;
+												<h:commandLink class="tooltips"	action="#{courseBean.viewDetails}">
+													
+													<h:graphicImage  value="Details_Icon.png"   height="30px" width="30px" />
+													<f:setPropertyActionListener target="#{courseBean.selectedCourseId}" value="#{course.course_id}" />
+													<span>Details</span>
+												</h:commandLink>&nbsp;&nbsp;
+												
+												<h:commandLink class="tooltips" action="#{courseBean.deleteCourse}"><h:graphicImage value="Delete_Icon.png"   height="30px" width="30px" />
+												<f:setPropertyActionListener target="#{courseBean.selectedCourseId}" value="#{course.course_id}" />
+												<span>Delete</span>
+												</h:commandLink>
+												
+											</p>
+										</td>
+										
+									</tr>
+								</ui:repeat>
+							</table>
+						</div>
+
+					</h:form>
+				</div>
+			</div>
+
+		</div>
+		
+		
+		<div id="right">
+				<div style="border-radius: 5px; padding-left:5px; padding-top:8px; margin-top:1px;  background-color:#CCCCCC;color:black;height: 45px">
+						<strong>Action</strong>		
+						<div style="padding-top: 10px;padding-left: 20px;">
+							<h:form prependId="false">
+								<p><h:commandButton class="bton" type="submit" action="createcourse.xhtml" value="Create a Course        >"/></p>
+								<p><h:commandButton class="bton" type="submit" action="#" value="Create a User          >"/></p>
+								<p><h:commandButton class="bton" type="submit" action="#" value="Create a Team          >"/></p>
+							</h:form>
+						</div>
+						</div>
+			</div>
+	</div>
+</h:body>
+</html>

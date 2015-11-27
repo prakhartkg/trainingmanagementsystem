@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+  <title><ui:insert name="title">Default title</ui:insert></title>
+  <link rel="stylesheet" href="css/style.css"/>
+<style type="text/css">
+	#left{
+	border-radius: 5px;
+	background-color: white;
+	width: 5%;
+	height:75%;
+	border: 1px solid black;
+	float: left;
+	}
+	#center{
+	border-radius: 5px;
+	background-color: white;
+	width: 70%;
+	height:95%;
+	border: 1px solid black;
+	margin-left:20px;
+	float: left;
+	}
+	
+	#right{
+	border-radius: 5px;
+	background-color: white;
+	width: 20%;
+	height:30%;
+	border: 1px solid black;
+	margin-left: 20px;
+	float: left;
+	}
+  	
+  	#header{
+  	padding-bottom:10px;
+  	padding-left:20px;
+  	border-radius: 20px;
+	box-shadow: 10px 10px 5px #888888;
+  	border:2px solid #00CCFF;
+  	height:120px;
+  	width:100%;
+  	font-size:36px;
+  	line-height:48px;
+  	background: linear-gradient(to bottom, #68EACC 0%, #497BE8 100%);
+  	color: #777;
+  	color:navy
+  	}
+  	
+  	#content{
+  	padding-left:30px;
+  	padding-top:30px;
+  	height:609px;
+  	color:white;
+  	}
+  
+  #footer{
+  padding-top:10px;
+ 	 background: linear-gradient(to bottom, #68EACC 0%, #497BE8 100%);
+ 	 color: #777;
+ 	 width:100%;
+ 	 color:navy;
+ 	 height:60px;
+ 	 padding-left:20px;
+  	 border-radius: 20px;
+	 box-shadow: 10px 10px 5px #888888;
+  	 border:2px solid #00CCFF;
+  }
+  </style>
+	
+  
+</h:head>
+
+<h:body>
+
+<div id="header">
+    <ui:insert name="header">
+    	<ui:include src="/template/header.xhtml"/>
+    </ui:insert>
+</div>
+
+
+<div id="content">
+  <ui:insert name="content">
+    	
+  </ui:insert>
+</div>
+
+<div id="footer">
+  <ui:insert name="footer">
+		<ui:include src="/template/footer.xhtml"/>
+  </ui:insert>
+</div>
+
+</h:body>
+
+</html>

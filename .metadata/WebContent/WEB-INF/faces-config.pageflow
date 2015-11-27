@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14468822118470" configfile="/trainingmanagementsystem/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="120" y="132" id="pf14468997479261" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14468997479262 pf14484464225370" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="dashboard.xhtml" x="492" y="168" id="pf14476803085170" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14468997479262" path="/dashboard.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="TrainerDashBoard.xhtml" x="447" y="326" id="pf14484464225371" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14484464225370" path="/TrainerDashBoard.xhtml"/>
+  <links id="pf14468997479262" target="pf14476803085170" source="pf14468997479261" outcome="success"/>
+  <links id="pf14484464225370" target="pf14484464225371" source="pf14468997479261" outcome="trainer" redirect="true"/>
+</pageflow:Pageflow>

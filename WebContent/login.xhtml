@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Login</title>
+<script  src="jquery/jquery.js"/>
+<script  src="jquery/jquery-ui.js"/>
+<script  src="jquery/Myjs.js"/>
+<script  src="jquery/validation.js"/>
+
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="css/jquery-ui.css"/>
+<link rel="stylesheet" href="css/MyCss.css"/>
+
+</h:head>
+<h:body>
+		
+<div id="maincontainer">
+        	<h:form prependId="false">
+        		<div  style="height:35px;"><h:outputText style="color:red;font-weight: bold;font-size:25px" value="#{param['errormsg']}"/></div>
+			<table>
+				<tr>
+					<td><p>UserName:</p></td>
+					<td><p><h:inputText id="username" value="#{loginBean.userName}" required="true" requiredMessage="Required" p:placeholder="User Name" /></p></td>
+					<td><h:message style="color:red" for="username"/></td>
+				</tr>
+				<tr>
+					<td><p>Password:</p></td>
+					<td><p><h:inputSecret id="password" value="#{loginBean.password}" required="true" requiredMessage="Required"  p:placeholder="Password"/></p></td>
+					<td><h:message style="color:red" for="password"/></td>
+				</tr>
+				<tr>
+					<td colspan="3"><p><h:selectBooleanCheckbox id="checked" />&nbsp;&nbsp;Remember Me</p></td>
+				</tr>
+				<tr>
+					<td><h:commandButton id="register" class="bton" value="Register" type="button"/></td>
+					<td align="right"><h:commandButton class="bton" value="SignIn" action="#{loginBean.authenticate}"/></td>
+					<td></td>
+				</tr>
+			</table>
+        	</h:form>
+      </div>
+
+		
+		
+			
+	<div id="registration">
+
+		<div id="formcontainer">
+			<h:form id="myForm" prependId="false">
+			<h1>Registration</h1>
+				<table>
+					<tr>
+						<td>Name</td>
+						<td><h:inputText id="name" value="#{registration.name}" /></td>
+						<td><span id="spanName"></span></td>
+					</tr>
+					<tr>
+						<td>Contact</td>
+						<td><h:inputText id="contact" value="#{registration.contact}" /></td>
+						<td><span id="spanContact"></span></td>	
+					</tr>
+					<tr>
+						<td>Email Id</td>
+						<td><h:inputText id="email" value="#{registration.email}" /></td>
+						<td><span id="spanEmail"></span></td>
+					</tr>
+					<tr>
+						<td>Designation</td>
+						<td>
+							<h:selectOneMenu id="des" value="#{registration.designation}" required="true" requiredMessage="Required">
+								<f:selectItem itemValue="0" itemLabel="--------Select---------" />
+								<f:selectItem itemValue="1" itemLabel="Manager" />
+								<f:selectItem itemValue="2" itemLabel="Trainer" />
+								<f:selectItem itemValue="3" itemLabel="Trainee" />
+							</h:selectOneMenu>
+						</td>
+						<td><h:message style="color:red" for="des"/></td>
+					</tr>
+					<tr>
+						<td>User Name</td>
+						<td><h:inputText id="username1" value="#{registration.userName}" /></td>
+						<td><span id="spanUser"></span></td>
+					</tr>
+					<tr>
+						<td>Password</td>
+						<td><h:inputSecret id="password1" value="#{registration.password}" /></td>
+						<td><span id="spanPassword"></span></td>
+					</tr>
+					<tr>
+						<td align="left"><h:commandButton id="reset" class="bton" type="reset" value="Reset"/></td>
+						<td align="right"><h:commandButton class="bton" type="submit" value="Save" action="#{registration.save}"/></td>
+					</tr>
+				</table>
+			</h:form>
+		</div>
+	</div>
+	<script  src="index.js"></script>
+	<div id="footer"></div>
+</h:body>
+</html>

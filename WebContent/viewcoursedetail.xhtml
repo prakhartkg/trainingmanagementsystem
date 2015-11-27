@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<script src="jquery/jquery.js" />
+	<script src="jquery/jquery-ui.js" />
+	<script src="jquery/Myjs.js" />
+	<script type="text/javascript" src="canvasjs.min.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.css" />
+	<link rel="stylesheet" href="css/MyCss.css" />
+	<link rel="stylesheet" href="css/style.css" />
+
+</h:head>
+<h:body>
+	<div id="main">
+		<div id="header">
+			<ui:include src="header.xhtml" />
+		</div>
+
+		<div id="content">
+			<div id="sidebar">
+				<ui:include src="sidebar.xhtml" />
+			</div>
+
+			<div id="center">
+				<div id="viewarea">
+					<div class="CSSTableGenerator">
+						<table>
+							<tr>
+								<td colspan="3">Course Details-<h:outputText value="#{courseBean.course.courseTitle}" /></td>
+							</tr>
+							<ui:repeat value="#{courseBean.course.headings}" var="heading">
+								<tr>
+									<td colspan="3" style="font-weight: bolder; font-size: 15px; background-color: #8C8C8C">
+										<h:outputText style="font-weight:bold;" value="#{heading.heading_text}" />
+										
+										<div style="float: right;">
+										<h:form>
+										<h:commandLink class="tooltips" action="#{courseBean.deleteHeading}"><h:graphicImage value="Delete_Icon.png"   height="30px" width="30px" />
+										<f:setPropertyActionListener target="#{courseBean.heading_id}" value="#{heading.heading_id}" />
+										<span>Delete</span>
+										</h:commandLink>
+										&nbsp;
+										<h:commandLink ><h:graphicImage  value="Edit_Icon.png" height="30px" width="30px" />
+										<f:setPropertyActionListener target="" value="" />
+										</h:commandLink>
+										</h:form>
+										</div>
+									</td>
+									
+								</tr>
+								<ui:repeat value="#{heading.subHeadings}" var="subheading">
+									<tr>
+										<td style="background-color: white"><strong>*</strong></td>
+										<td style="background-color: white"><h:outputText value="#{subheading.subheading_text}" /></td>
+										<td style="background-color: white;"><h:outputText value="#{subheading.status}" />
+										<div style="float: right;">
+										<h:form>
+										<h:commandLink class="tooltips" action="#{courseBean.deleteSubHeading}"><h:graphicImage value="Delete_Icon.png"   height="30px" width="30px" />
+										<f:setPropertyActionListener target="#{courseBean.subheading.subheading_id}" value="#{subheading.subheading_id}" />
+										<span>Delete</span>
+										</h:commandLink>
+										&nbsp;
+										<h:commandLink ><h:graphicImage  value="Edit_Icon.png" height="30px" width="30px" />
+										<f:setPropertyActionListener target="" value="" />
+										</h:commandLink>
+										</h:form>
+										</div>
+										</td>
+										
+									</tr>
+								</ui:repeat>
+							</ui:repeat>
+						</table>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div id="right">
+				<div style="border-radius: 5px; padding-left:5px; padding-top:8px; margin-top:1px;  background-color:#CCCCCC;color:black;height: 45px">
+						<strong>Action</strong>		
+						<div style="padding-top: 10px;padding-left: 20px;">
+							<h:form prependId="false">
+								<p><h:commandButton class="bton" type="submit" action="createcourse.xhtml" value="Create a Course        >"/></p>
+								<p><h:commandButton class="bton" type="submit" action="#" value="Create a User          >"/></p>
+								<p><h:commandButton class="bton" type="submit" action="#" value="Create a Team          >"/></p>
+							</h:form>
+						</div>
+						</div>
+			</div>
+		</div>
+	
+</h:body>
+</html>
